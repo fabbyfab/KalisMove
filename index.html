@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KalisMove - Move-to-Earn</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>KalisMove</h1>
+        <button id="connectWallet">Connecter mon Wallet</button>
+    </header>
+    
+    <main>
+        <h2>Marche, cours, gagne !</h2>
+        <p>Gagne des tokens KALIS en enregistrant tes performances sur la blockchain.</p>
+    </main>
+    
+    <section class="subscribe">
+        <h3>Rejoins la communauté KalisMove</h3>
+        <p>Inscris-toi pour recevoir les mises à jour et participer aux défis.</p>
+        <input type="email" placeholder="Ton email..." id="email">
+        <button id="subscribe">S'inscrire</button>
+    </section>
+    
+    <section class="games">
+        <h3>📢 Défis Officiels</h3>
+        <div class="game-card">
+            <h4>Moonwalk Shrimp Stride</h4>
+            <p>📅 02/02 - 08/02 | 👣 10k Steps | 🏆 273 Joueurs | 💰 Entry: 0.3 KALIS</p>
+            <button class="join">Rejoindre</button>
+        </div>
+        <div class="game-card">
+            <h4>BONK Shrimp Stroll</h4>
+            <p>📅 04/02 - 10/02 | 👣 5k Steps | 🏆 211 Joueurs | 💰 Entry: 1M BONK</p>
+            <button class="join">Rejoindre</button>
+        </div>
+        <div class="game-card">
+            <h4>Moonwalk Dolphin Stroll</h4>
+            <p>📅 05/02 - 11/02 | 👣 7k Steps | 🏆 44 Joueurs | 💰 Entry: 1 KALIS</p>
+            <button class="join">Rejoindre</button>
+        </div>
+    </section>
+    
+    <footer>
+        © 2025 KalisMove - Tous droits réservés
+    </footer>
+    
+    <script>
+        async function connectWallet() {
+            if (window.ethereum) {
+                try {
+                    const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+                    alert("Wallet connecté: " + accounts[0]);
+                } catch (error) {
+                    console.error("Erreur de connexion au wallet", error);
+                    alert("Erreur lors de la connexion au wallet");
+                }
+            } else {
+                alert("Metamask non détecté. Veuillez l'installer.");
+            }
+        }
+
+        document.getElementById("connectWallet").addEventListener("click", connectWallet);
+    </script>
+</body>
+</html>
